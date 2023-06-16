@@ -1,0 +1,43 @@
+extends ../layout
+
+block content
+    h1= title
+    button(id='create_user') Добавить
+    table
+        tr 
+            th id
+            th Имя
+            th Логин
+            th Роль
+        each item in users
+            tr
+                td= item.id
+                td= item.fio
+                td= item.login
+                td= item.role_label
+
+    div#create_order_popup.q-window
+          div.q-window-block(style="width:400px;height:220px;margin:-150px 0 0 -400px")
+            div.q-window-header Добавить пользователя
+              a#create_order_popup_close(style="position: relative;left: 300px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  label(for="inpName") Имя
+                  input#inpName(type="text")
+                div.q-form-data
+                  label(for="inpLogin") Логин
+                  input#inpName(type="text")
+                div.q-form-data
+                label(for="inpRole") Роль
+                  input#inpRole(type="text")
+                  select#inpRple
+                    each item in roles
+                        option(value=item.id)= item.label
+                div.q-form-data
+                  label(for="inpPass") Пароль
+                  input#inpPass(type="text")
+
+            div.q-buttons
+              a#submit_create_order Добавить
+              a#cancel_create_order Отменить

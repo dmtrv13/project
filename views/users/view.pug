@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    h1= title
+    div
+      form
+        fieldset
+          label Имя
+          input(type='text', disabled=true, value=user.fio)
+          br
+          label Логин
+          input(type='text', disabled=true, value=user.login)
+          br
+          label Роль
+          input(type='text', disabled=true, value=user.role_label)
+
